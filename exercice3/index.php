@@ -1,0 +1,49 @@
+<?php
+$form = "<form class='form' method='get'>
+<div class='mb-3'>
+    <label for='login' class='form-label'>login</label>
+    <input type='login' name ='login' class='form-control' id='exampleInputEmail1' aria-describedby='emailHelp'>
+    
+</div>
+<div class='mb-3'>
+    <label for='password' class='form-label'>Password</label>
+    <input type='password' name='password' class='form-control' id='exampleInputPassword1'>
+</div>
+<button type='submit' class='btn btn-primary'>valide ici !</button>
+</form>";
+
+$login='login';
+$password='password';
+
+if (empty($_GET['login']) || empty($_GET['password'])) {
+
+    $result = $form;
+
+}else {
+    setcookie('login', $_GET['login'], time() + 365*24*3600); 
+    setcookie('password', $_GET['password'], time() + 365*24*3600);
+    $result= 'Bien enregistré !';
+}
+
+
+?>
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <title>Partie 8 : Variables superglobales, sessions et cookies</title>
+</head>
+<body>
+    <h2>Faire un formulaire qui permet de récupérer le login et le mot de passe de l'utilisateur. A la validation du formulaire, stocker les informations dans un cookie.</h2>
+    
+    
+    
+<?= $result ?>
+
+</body>
+</html>
