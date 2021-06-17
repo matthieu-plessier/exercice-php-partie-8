@@ -18,6 +18,6 @@ $_SESSION['age']=44;
     <title>Partie 8 : Variables superglobales, sessions et cookies</title>
 </head>
 <body>
-    
+    <a href="user.php">Clique ici !</a>
 </body>
 </html>

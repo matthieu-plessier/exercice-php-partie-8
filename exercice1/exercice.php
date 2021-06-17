@@ -1,5 +1,5 @@
 <?php
-    echo 'User IP Address  '.$_SERVER['REMOTE_ADDR'].' '.$_SERVER['HTTP_USER_AGENT'].' '.$_SERVER['SERVER_NAME'];
+    echo 'User IP Address  '.$_SERVER['REMOTE_ADDR'].'<br> '.$_SERVER['HTTP_USER_AGENT'].'<br> '.$_SERVER['SERVER_NAME'];
     
     
 ?>

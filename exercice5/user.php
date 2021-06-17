@@ -1,6 +1,5 @@
 <?php
-$form = "<form class='form' method='get'>
-
+$form = "<form class='form'  action='user.php' method='post'>
 <div class='mb-3'>
     <label for='login' class='form-label'>login</label>
     <input type='login' name ='login' class='form-control' id='exampleInputEmail1' aria-describedby='emailHelp'>
@@ -13,17 +12,20 @@ $form = "<form class='form' method='get'>
 <button type='submit' class='btn btn-primary'>valide ici !</button>
 </form>";
 
-$login='login';
-$password='password';
+$login= $_POST['login'];
+$password=$_POST['password'];
 
-if (empty($_GET['login']) || empty($_GET['password'])) {
+if (empty($_POST['login']) || empty($_POST['password'])) {
 
     $result = $form;
 
 }else {
-    setcookie('login', $_GET['login'], time() + 365*24*3600); 
-    setcookie('password', $_GET['password'], time() + 365*24*3600);
+    setcookie('login', $_POST['login'], time() + 365*24*3600); 
+    setcookie('password', $_POST['password'], time() + 365*24*3600);
     $result= 'Bien enregistré !';
+}
+if (!empty($_COOKIE['login']) || !empty($_COOKIE['password'])) {
+$result = 'Votre login est : ' .$_POST['login']. ' et votre mot de passe est : '.$_POST['password'];
 }
 
 
